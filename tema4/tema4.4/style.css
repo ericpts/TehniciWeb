@@ -1,0 +1,32 @@
+article {
+	float: left;
+	border: 1px solid black;
+	width: 49%;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+div {
+	display: flex;
+}
+
+img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+img.small {
+	position: fixed;
+	top: 0;
+	right: 0;
+
+	height: 5em;
+
+
+}
