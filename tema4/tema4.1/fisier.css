@@ -1,0 +1,16 @@
+.prima:hover {
+	z-index: 100;
+}
+
+.prima {
+	position: absolute;
+	left: 700px;
+	top: 15px;
+	z-index: 0;
+}
+.doua {
+	position: absolute;
+	left: 8px;
+	top: 15px;
+	z-index: 1;
+}
