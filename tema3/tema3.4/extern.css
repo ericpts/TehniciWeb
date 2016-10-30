@@ -1,0 +1,48 @@
+html {
+	background: #EEEEEE;
+	background-image: url("http://cdn.wallpapersafari.com/58/40/BQ8XKu.png");
+}
+
+h1 {
+	color: red;
+	text-decoration: underline;
+}
+
+.after-h3 {
+	border: 2px dotted blue;
+	color: green;
+}
+
+.c1 {
+	background: purple;
+}
+
+p.c3 {
+	font-style: bold;
+	color: magenta;
+}
+
+.c2 {
+	font-style: italic;
+	text-decoration: line-through;
+}
+
+/* Schimbarea ordinii lui p.c3 cu .c3 nu afecteaza cu nimic pagina 
+ * pentru ca regulile sunt cautate in ordinea in care apar in definirea elementului
+ */
+
+
+.c3 {
+	text-decoration: overline;
+}
+
+p#pgf {
+	color: orange;
+	text-decoration: overline underline;
+}
+
+* {
+	outline-style: solid;
+	outline-color: red;
+
+}
