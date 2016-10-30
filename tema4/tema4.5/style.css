@@ -63,4 +63,11 @@ div.final {
 		border: 1px solid black;
 	}
 
+	div.content {
+		margin-left: 0px;
+		margin-right: 0px;
+		border-left: 2px solid black;
+		border-right: 2px solid black;
+	}
+
 }
