@@ -1,0 +1,53 @@
+.cateva {
+	background-color: Aqua;
+	padding-top: 1em; 
+	padding-bottom: 1em; 
+
+	height: 100px;
+
+	border-bottom: 3px solid Navy;
+}
+
+img {
+	display: block;
+	margin: auto;
+	float: right;
+	clear: left;
+	max-width: 100%;
+	max-height: 100%;
+	padding-top: -1em;
+}
+
+div.content {
+	margin-left: 10px;
+	margin-right: 10px;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+}
+
+tr:nth-child(odd) {
+	background-color: PaleTurquoise;
+}
+
+
+td {
+	padding-bottom: 3em;
+}
+
+td.left {
+	padding-right: 5em;
+}
+
+div.final {
+
+	background-color: LightCyan;
+
+	border-top: 1px solid black;
+
+	border-bottom: 2px solid Navy;
+
+	font-weight: bold;
+
+	text-align: center;
+
+}
