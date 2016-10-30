@@ -10,13 +10,9 @@
 }
 
 img {
-	display: block;
-	margin: auto;
 	float: right;
-	clear: left;
 	max-width: 100%;
 	max-height: 100%;
-	padding-top: -1em;
 }
 
 div.content {
@@ -50,5 +46,21 @@ div.final {
 	font-weight: bold;
 
 	text-align: center;
+
+}
+
+@media print {
+	img {
+		height: 0;
+		width: 0;
+	}
+
+	table {
+		border-collapse: collapse;
+	}
+
+	table, th, td{
+		border: 1px solid black;
+	}
 
 }
