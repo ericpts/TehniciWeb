@@ -1,0 +1,36 @@
+<html>
+
+<head>
+</head>
+
+<script>
+
+
+var dictionar = {"acesta":"this", "este":"is", "un":"a"};
+
+while (true) {
+	var cuvant = prompt("cuvant de tradus");
+	var found = false;
+
+	for (word in dictionar) {
+		console.log(word, cuvant);
+		if (word == cuvant) {
+			alert("traducerea lui <" + cuvant+ "> este <"+ dictionar[cuvant] + ">");
+			found = true;
+		}
+	}
+
+	if (!found) {
+		alert("nu s-a putut gasi o traducere pentru <" + cuvant + ">");
+	}
+
+	var decizie = confirm("continuati?");
+	if (!decizie) {
+		break;
+	}
+}
+
+</script>
+
+
+</html>
