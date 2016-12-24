@@ -3,14 +3,85 @@
 <html>
 
 <head>
+<script>
+
+function Person(nume, dob, cnp) {
+	this.nume = nume;
+	this.dob = dob;
+	this.cnp = cnp;
+
+	this.toString = function() {
+		return this.nume + " nascut pe " + this.dob.toString() + " CNP " + this.cnp;
+	}
+}
+
+var Persons = [];
+
+function goodCNP(cnp) {
+	if (cnp.length != 13) {
+		return false;
+	}
+
+	var regex = /\d{13}/;
+
+	var match = regex.exec(cnp);
+
+	if (!match)
+		return false;
+	
+	return match[0] == cnp;
+
+}
+
+function adauga() {
+	var nume = prompt("Numele persoanei: ");
+	var dob = new Date(prompt("Date of birth YYYY-MM-DD: "));
+	var cnp = null;
+
+	while (true) {
+		cnp = prompt("CNP: ");
+		if (!goodCNP(cnp)) {
+			alert("CNP introdus este gresit!");
+			continue;
+		}
+		break;
+	}
+
+	var person = new Person(nume, dob, cnp);
+	Persons.push(person);
+}
+
+function getPersons() {
+	var ret = "";
+	for(var i = 0; i < Persons.length; ++i) {
+		var person = Persons[i];
+		ret += "<p> " + person.toString() + " </p>";
+	}
+	return ret;
+}
+
+function afiseaza() {
+	var div = document.getElementById("informatii");
+	div.innerHTML = getPersons();
+}
+
+</script>
+</head>
+
+<head>
 	<title> Tema </title>
 </head>
 <body>
 
-	<button id="adauga"> Adauga </button>
+	<button id="adauga" onclick="adauga()"> Adauga </button>
 
-	<button id="afiseaza"> Afiseaza </button>
+	<button id="afiseaza" onclick="afiseaza()"> Afiseaza </button>
 
+	<section>
+		<h2> Informatii </h2>
+		<div id="informatii">
+		</div>
+	</section>
 
 
 </body>
