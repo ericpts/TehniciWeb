@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title> Tema </title>
+
+<script>
+
+
+function para1() {
+	return document.getElementById("para1");
+}
+
+function para2() {
+	return document.getElementById("para2");
+}
+
+function butonul() {
+	document.getElementById("butonul");
+}
+
+function schimbaParagraf(paragraf) {
+	paragraf.style.color = "blue";
+}
+
+function schimbaInapoi(paragraf) {
+	paragraf.style.color = "black";
+}
+
+function other(para) {
+	if (para == para1()) {
+		return para2();
+	} else { 
+		return para1();
+	}
+}
+
+function apasatButon() {
+	var cerere = prompt("aparitie paragraf [ex: floare 1]");
+	var spatiu = cerere.indexOf(" ");
+	var cuvant = cerere.substr(0, spatiu);
+	
+	var ultimulSpatiu = cerere.lastIndexOf(" ");
+
+	var numar = parseInt(cerere.substr(ultimulSpatiu + 1));
+
+	if (numar != 1 && numar != 2)
+		return alert("Numar incorect!");
+
+	var para = (numar == 1) ? para1() : para2();
+
+	var text = para.innerHTML;
+
+	var cnt = 0;
+	var last = -1;
+
+	while ((last = text.indexOf(cuvant)) != -1) {
+		cnt += 1;
+		text = text.substr(last + 1);
+	}
+
+	alert(cnt + " aparitii ");
+}
+
+</script>
+
+</head>
+
+<body>
+	<p id="para1" onmouseover="schimbaParagraf(other(this))" onmouseout="schimbaInapoi(other(this))"> floare floare floare paragraful cu numarul 1! </p>
+	<p id="para2" onmouseover="schimbaParagraf(other(this))" onmouseout="schimbaInapoi(other(this))"> bombastic fantastic fantastic paragraful cu numarul 2! </p>
+
+	<button id="butonul" onclick="apasatButon()"> ButonuL! </button>
+</body>
+
+
+</html>
