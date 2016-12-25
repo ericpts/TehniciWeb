@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title> Titlu </title>
+
+<style>
+.stil1 {
+	color: red;
+}
+
+.stil2 {
+	color: black;
+}
+
+.stil3 {
+	color: blue;
+}
+
+</style>
+
+<script>
+
+var at = 0;
+
+function faButon(stil) {
+	var buton = document.createElement("button");
+	buton.className = stil;
+
+	var text = "Butonul " + at;
+	buton.appendChild(document.createTextNode(text));
+
+	var alertText = "Ati apasat pe butonul " + at;
+
+	function onclick() {
+		alert(alertText);
+	}
+
+	buton.onclick = onclick;
+
+	at++;
+
+	return buton;
+}
+
+function bagaButoane(count, stil) {
+	var mareleDiv = document.createElement("div");
+	for(var i = 0; i < count; ++i) {
+		mareleDiv.appendChild(faButon(stil));
+	}
+
+	document.body.appendChild(mareleDiv);
+}
+
+window.addEventListener("load", function() {
+	var form = document.getElementById("form");
+
+	form.addEventListener("submit", function(event) {
+		var count = parseInt(event.currentTarget["count"].value);
+		var stil = event.currentTarget["stil"].value;
+
+		bagaButoane(count, stil)
+		event.preventDefault();
+	});
+});
+
+</script>
+</head>
+
+<body>
+	<form id="form">
+		<div>
+			<label for="count">Cate butoane: </label>
+			<input type="text" id="count" name="count"/>
+		</div>
+
+		<div>
+			<select name="stil">
+				<option value="stil1"> Stil 1 </option>
+				<option value="stil2"> Stil 2 </option>
+				<option value="stil3"> Stil 3 </option>
+			</select>
+		</div>
+
+		<div class="button">
+			<button type="submit"> Send </button>
+		</div>
+	</form>
+</body>
+
+</html>
