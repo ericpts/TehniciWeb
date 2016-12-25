@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title> Titlu </title>
+<script>
+
+var dict = {
+	"finlanda": "helsinki",
+	"belarus": "minsk"
+}
+
+function submitat(event) {
+
+	function check(country) {
+		var answer = event.currentTarget[country].value;
+		return answer.toLowerCase() == dict[country].toLowerCase();
+	}
+
+	var score = 0;
+	for(country in dict) {
+		if (check(country)) {
+			score += 10;
+		}
+	}
+
+	var scor = document.getElementById("scor");
+	scor.value = score;
+}
+
+window.addEventListener("load", function() {
+
+	var form = document.getElementById("form");
+
+	form.addEventListener("submit", function(event) {
+		submitat(event);
+		event.preventDefault();
+	});
+});
+
+</script>
+</head>
+
+<body>
+	<form id="form">
+		<div>
+			<label for="finlanda">Capitala Finlandei: </label>
+			<input type="text" id="finlanda" name="finlanda"/>
+		</div>
+
+		<div>
+			<label for="belarus">Capitala Belarusului: </label>
+			<input type="text" id="belarus" name="belarus"/>
+		</div>
+
+		<div class="button">
+			<button type="submit"> Send </button>
+		</div>
+	</form>
+
+
+	<div>
+		<label> Scor: </label>
+		<input type="text" id="scor" readonly/>
+	</div>
+</body>
+
+</html>
