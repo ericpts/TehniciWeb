@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<script>
+
+function checkMail(mail) {
+	return mail.endsWith("@gmail.com");
+}
+
+function checkMesaj(mesaj) {
+	return mesaj.length <= 140;
+}
+
+function checkSelect(select) {
+	return select.toLowerCase() != "bad";
+}
+
+function formSubmitted(event) {
+	function get(str) {
+		return event.target[str].value;
+	}
+	var mail = get("mail");
+	var mesaj = get("msg");
+	var select = get("select");
+
+	if (!checkMail(mail)) {
+		alert("Emailul introdus este eronat!");
+	}
+
+	if (!checkMesaj(mesaj)) {
+		alert("Mesajul este prea lung!");
+	}
+
+	if (!checkSelect(select)) {
+		alert("Selectie proasta!");
+	}
+
+}
+
+window.addEventListener("load", function() {
+	var form = document.getElementById("form");
+
+	form.addEventListener("submit", function(event) {
+		event.preventDefault();
+		formSubmitted(event);
+	});
+});
+
+</script>
+
+</head>
+
+<body>
+	<form id="form">
+		<div>
+			<label for="mail">Email: </label>
+			<input type="text" id="mail" name="mail"/>
+		</div>
+
+		<div>
+			<label for="msg">Mesaj(max 140 caractere): </label>
+			<textarea id="msg" name="msg"> </textarea>
+		</div>
+
+		<div>
+			<select id="select">
+				<option value="bad" selected> NU selecta asta </option>
+				<option value="good"> selecteaza asta! </option>
+			</select>
+		</div>
+
+		<button type="submit" id="submit"> Send </button>
+
+		</form>
+
+</body>
+</html>
